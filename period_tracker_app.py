@@ -5,7 +5,8 @@ import random
 import sys # 引入 sys 模組，用於輸出調試信息到控制台
 
 # --- 1. 頁面設定與樣式 ---
-st.set_page_config(page_title="週期推算小幫手", page_icon="🩸", layout="centered")
+# 更改：頁面標題改為「薛靖諭的粉紅秘書」
+st.set_page_config(page_title="薛靖諭的粉紅秘書", page_icon="💖", layout="centered")
 
 # 使用 CSS 來美化按鈕和標題
 TAILWIND_PINK = "rgba(236, 72, 153, 1)" # Tailwind pink-500 equivalent
@@ -236,8 +237,8 @@ def calculate_predictions(periods, avg_cycle, target_date):
 
 
 # --- 4. Streamlit UI 介面 ---
-
-st.title("🩸 月經週期推算小幫手")
+# 更改：應用程式標題改為「薛靖諭的粉紅秘書」
+st.title("💖 薛靖諭的粉紅秘書")
 st.markdown("---")
 
 # 1. 輸入新的經期開始日與結束日
@@ -287,7 +288,7 @@ if today_data['last_period_date']:
     # 3. 貼心小提醒
     if current_stage_for_today != "無紀錄" and "歷史查詢" not in current_stage_for_today:
         tip = get_contextual_tip(current_stage_for_today)
-        st.success(f"**💖 貼心小提醒：** {tip}")
+        st.success(f"**💖 秘書提醒：** {tip}") # 提醒改為「秘書提醒」
     
     # 4. 距離下次經期
     days_to_next = today_data['days_to_next_period']
@@ -309,7 +310,7 @@ else:
 
 # --- 4b. 查詢特定日期 (隱藏式設計) ---
 # 標題已更改為「妳想查哪一天呢」
-with st.expander("🔍 妳想查哪一天呢"):
+with st.expander("🔍 秘書：妳想查哪一天呢"):
 
     # 查詢特定日期欄位
     st.date_input(
@@ -403,7 +404,7 @@ FUN_CONTENTS = [
 random_fun_content = random.choice(FUN_CONTENTS)
 
 # 標題設定為「錄影中請微笑」
-st.markdown(f"**😀 錄影中請微笑**")
+st.markdown(f"**😀 秘書的幽默時間**")
 st.success(f"**{random_fun_content}**") 
 
 st.markdown("---")
@@ -437,4 +438,4 @@ with st.expander("📜 歷史紀錄與管理"):
     else:
         st.info("尚無歷史紀錄。")
 
-st.caption("版本：v3.2 (核心邏輯最終修正) | Streamlit App")
+st.caption("版本：v3.3 (哈囉美女!) | by chunwei")
